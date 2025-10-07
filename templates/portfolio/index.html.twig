@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="py-5 bg-dark text-light" id="projects">
+  <div class="container">
+    <h2 class="text-center mb-5">🚀 Mes Projets</h2>
+    <div class="row g-4">
+      {% for project in [
+        { title: 'Application financière', desc: 'Gestion d’actifs développée sous Symfony.' },
+        { title: 'Plateforme de QCM', desc: 'Projet éducatif full-stack (Symfony + API).' },
+        { title: 'Site Portfolio 3D', desc: 'Expérience immersive avec fond animé et interactivité.' }
+      ] %}
+        <div class="col-md-4">
+          <div class="card bg-secondary text-white border-0 shadow h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text flex-grow-1">{{ project.desc }}</p>
+              <a href="#" class="btn btn-outline-light mt-3">Voir plus</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
