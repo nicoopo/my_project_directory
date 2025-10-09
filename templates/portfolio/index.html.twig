@@ -43,11 +43,25 @@
 </section>
 
 <script>
-document.addEventListener("scroll", () => {
-  document.querySelectorAll(".project-row").forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) el.classList.add("visible");
-  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".project-row");
+
+  // Fonction d'affichage quand on scroll
+  const reveal = () => {
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("visible");
+      }
+    });
+  };
+
+  // Vérifie immédiatement au chargement
+  reveal();
+
+  // Puis à chaque scroll
+  document.addEventListener("scroll", reveal);
 });
 </script>
 {% endblock %}

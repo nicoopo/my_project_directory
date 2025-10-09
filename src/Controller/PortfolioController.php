@@ -16,15 +16,27 @@ final class PortfolioController extends AbstractController
             'Java & JavaFX' => [
                 [
                     'titre' => 'Todolist avec et sans interface',
-                    'description' => 'Application JavaFX permettant la gestion de tâches avec une base SQLite.',
-                    'tech' => 'JavaFX, SQLite, MVC',
+                    'description' => 'Application JavaFX permettant la gestion de tâches avec une base mysql.',
+                    'tech' => 'JavaFX, MYSQL, MVC',
                     'image' => 'java/javafx_todo.gif',
                 ],
                 [
-                    'titre' => 'Jeu du Serpent',
-                    'description' => 'Version modernisée du classique Snake en JavaFX avec animations.',
-                    'tech' => 'Java, JavaFX, POO',
-                    'image' => 'snake_java.jpg',
+                    'titre' => 'Jeu du pendu',
+                    'description' => 'Version terminal  .',
+                    'tech' => 'Java',
+                    'image' => 'java/pendu.png',
+                ],
+                [
+                    'titre' => 'Poupee russe',
+                    'description' => 'Version terminal  .',
+                    'tech' => 'Java, POO',
+                    'image' => 'java/poupee.png',
+                ],
+                [
+                    'titre' => 'CRUD',
+                    'description' => 'CRUD Utilisateur',
+                    'tech' => 'Java, POO, MYSQL',
+                    'image' => 'java/crud.png',
                 ],
             ],
             'PHP / Symfony' => [
@@ -32,13 +44,13 @@ final class PortfolioController extends AbstractController
                     'titre' => 'Plateforme de QCM',
                     'description' => 'Application web de QCM pour les formations CCA, avec authentification et suivi des scores.',
                     'tech' => 'Symfony, Bootstrap, MySQL',
-                    'image' => 'qcm_app.jpg',
+                    'image' => 'symfony/qcm_app.gif',
                 ],
                 [
                     'titre' => 'CRM Financier',
                     'description' => 'Progiciel pour la gestion de portefeuilles clients et d’investissements.',
-                    'tech' => 'Symfony, Twig, Chart.js',
-                    'image' => 'crm_finance.jpg',
+                    'tech' => 'Symfony, UX, MYSQL',
+                    'image' => 'symfony/crm_finance.png',
                 ],
             ],
             'Réseau / Infra' => [
@@ -46,13 +58,13 @@ final class PortfolioController extends AbstractController
                     'titre' => 'Topologie Cisco virtuelle',
                     'description' => 'Mise en place d’un réseau complet sous Cisco Packet Tracer avec routage dynamique.',
                     'tech' => 'Cisco, VLAN, OSPF',
-                    'image' => 'cisco_network.jpg',
+                    'image' => 'reseau/cisco_network.png',
                 ],
                 [
                     'titre' => 'Serveur Web Debian',
                     'description' => 'Déploiement complet d’un serveur Apache/PHP sécurisé sous Debian.',
                     'tech' => 'Linux, Apache2, SSH',
-                    'image' => 'debian_server.jpg',
+                    'image' => 'reseau/debian_server.png',
                 ],
             ],
         ];

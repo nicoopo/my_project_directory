@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> #}
-        {% block stylesheets %}
-        
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Univers de Nico{% endblock %}</title>
+    <link rel="icon" href="{{ asset('images/nico-symbol.svg') }}">
+    {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
-        {% endblock %}
+    {% endblock %}
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+<body>
+    <nav class="navbar-galactic">
+        <div class="navbar-container">
+            {# <img src="{{ asset('images/nico-symbol.svg')" class ="img-fluid" style = "max-width: 80px; height:auto;" alt=""> #}
+            <a href="{{ path('app_home') }}" class="logo gradient" > 
+                <img src="{{ asset('images/nico-symbol.svg') }}"  class= "logo-sm" alt="">
+            </a>
+            <ul class="navbar-links">
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_projects') }}">Projets</a></li>
+                <li><a href="#">Compétences</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        {% block body %}
+            
+    <canvas id="stars"></canvas>
         {% endblock %}
-    </head>
-    <body class="bg-space text-white overflow-hidden">
-        {% block body %}{% endblock %}
-        <script src="{{ asset('controllers/animation_controller.js') }}" type="module"></script>
-    </body>
+    </main>
+    <script src="{{ asset('controllers/animation_controller.js') }}" type="module"></script> 
+</body>
 </html>

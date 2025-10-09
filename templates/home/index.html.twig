@@ -1,23 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 <div class="hero-container">
-    <div class="logo">N</div>
+    <div class="logo">
+        {# <img src="{{ asset('images/nico-symbol.svg') }}" alt="" class=" w-25 p-3"> #}
+    </div>
     <h1 class="title">
         BIENVENUE DANS<br>
-        <span class="gradient">L'UNIVERS</span> 🚀<br>
+        <span class="gradient">L'UNIVERS</span><br>
         DE NICO
     </h1>
     <p class="subtitle">
         Ici, le code, la curiosité et la créativité gravitent ensemble.
     </p>
-    <a href="#univers" class="btn btn-galactic btn-galactic-primary">Entrer dans l’univers</a>
-    <a href="{{ path('app_projects') }}" class="btn btn-galactic btn-galactic-outline-light">Voir mes projets</a>
-    <a href="#" class="btn btn-galactic btn-galactic-dark">Explorer</a>
-    <a href="#" class="btn btn-galactic btn-galactic-dark">Contacter</a>
-    <button class="btn btn-galactic btn-galactic-dark">Entrer</button>
 
-
-    <canvas id="stars"></canvas>
 </div>
 {% endblock %}
