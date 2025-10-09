@@ -15,7 +15,6 @@
 <body>
     <nav class="navbar-galactic">
         <div class="navbar-container">
-            {# <img src="{{ asset('images/nico-symbol.svg')" class ="img-fluid" style = "max-width: 80px; height:auto;" alt=""> #}
             <a href="{{ path('app_home') }}" class="logo gradient" > 
                 <img src="{{ asset('images/nico-symbol.svg') }}"  class= "logo-sm" alt="">
             </a>
@@ -29,8 +28,7 @@
     </nav>
     <main>
         {% block body %}
-            
-    <canvas id="stars"></canvas>
+            <canvas id="stars"></canvas>
         {% endblock %}
     </main>
     <script src="{{ asset('controllers/animation_controller.js') }}" type="module"></script> 
