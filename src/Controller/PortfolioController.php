@@ -27,7 +27,7 @@ final class PortfolioController extends AbstractController
                     'image' => 'java/pendu.png',
                 ],
                 [
-                    'titre' => 'Poupee russe',
+                    'titre' => 'Poupée russe',
                     'description' => 'Version terminal  .',
                     'tech' => 'Java, POO',
                     'image' => 'java/poupee.png',
