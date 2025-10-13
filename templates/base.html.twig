@@ -15,48 +15,46 @@
 <body>
     <nav class="navbar-galactic">
         <div class="navbar-container">
-            <a href="{{ path('app_home') }}" class="logo gradient" >
-                <img src="{{ asset('images/nico-symbol.svg') }}"  class= "logo-sm" alt="">
+            <a href="{{ path('app_home') }}" class="logo gradient">
+                <img src="{{ asset('images/nico-symbol.svg') }}" class="logo-sm" alt="">
             </a>
-            <ul class="navbar-links">
-                <li><a href="{{ path('app_home') }}">Accueil</a></li>
-                <li><a href="{{ path('app_projects') }}">Projets</a></li>
-                <li><a href="#">Compétences</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+
+            <!-- 🌌 Menu icon -->
+            <div class="dropdown">
+                <button type="button" class="menu-button" id="menuToggle"> 
+                    {{ ux_icon('bi:menu-app-fill', {'height': '32px', 'width': '32px', 'color': '#cfe9ff'}) }}
+                </button>
+
+                <!-- Menu déroulant -->
+                <ul class="dropdown-menu-galactic" id="menuDropdown">
+                    <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                    <li><a href="{{ path('app_projects') }}">Projets</a></li>
+                    <li><a href="#">Compétences</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <main>
         {% block body %}
-            <canvas id="stars"></canvas>
         {% endblock %}
     </main>
-    <script src="{{ asset('controllers/animation_controller.js') }}" type="module"></script>
+
     <script>
-        // === NAVBAR HIDE / SHOW + SHADOW GLOW ===
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar-galactic');
+        // Gestion ouverture/fermeture du menu galactique
+        const menuToggle = document.getElementById('menuToggle');
+        const menuDropdown = document.getElementById('menuDropdown');
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+        menuToggle.addEventListener('click', () => {
+            menuDropdown.classList.toggle('show');
+        });
 
-            if (currentScroll <= 0) {
-                navbar.classList.remove('scroll-up');
-                navbar.classList.remove('hidden');
-                return;
+        // Ferme le menu quand on clique ailleurs
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !menuDropdown.contains(e.target)) {
+                menuDropdown.classList.remove('show');
             }
-
-            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
-                // Scroll down → cache la navbar
-                navbar.classList.add('hidden');
-                navbar.classList.remove('scroll-up');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
-                // Scroll up → affiche la navbar
-                navbar.classList.remove('hidden');
-                navbar.classList.add('scroll-up');
-            }
-            lastScroll = currentScroll;
         });
     </script>
 </body>

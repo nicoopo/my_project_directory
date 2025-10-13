@@ -103,6 +103,112 @@
     }
 }
 
+/* === 🌌 MENU GALACTIQUE DÉROULANT === */
+/* ===== Fix icône dans le bouton menu (UX Icon ou SVG inline) ===== */
+.menu-button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: rgba(20,20,40,0.45); /* ton style existant */
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  outline: none;
+}
+
+/* Force l'affichage et la taille du SVG généré par ux_icon */
+.menu-button svg,
+.menu-button .ux-icon,
+.menu-button .icon {
+  display: inline-block !important;
+  width: 1.6em !important;
+  height: 1.6em !important;
+  min-width: 24px;
+  min-height: 24px;
+  fill: currentColor !important;        /* permet de colorer le svg via color */
+  color: #e0f7ff !important;            /* couleur icône */
+  vertical-align: middle;
+}
+
+/* Si ux_icon injecte <svg role="img"> parfois le fill est sur <path> */
+.menu-button svg path {
+  fill: currentColor !important;
+}
+
+/* S'assure que rien ne masque le SVG */
+.menu-button * {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Optionnel : hover glow identique au reste du thème */
+.menu-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(127,90,240,0.45), 0 0 36px rgba(0,212,255,0.25);
+}
+
+
+.dropdown-menu-galactic {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 80px;
+  background: rgba(15, 15, 30, 0.8);
+  border: 1px solid rgba(127, 90, 240, 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  width: 220px;
+  z-index: 999;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.dropdown-menu-galactic.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu-galactic li {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.dropdown-menu-galactic a {
+  display: block;
+  color: #e0f7ff;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu-galactic a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #7f5af0, 0 0 16px #00d4ff;
+  background: rgba(127, 90, 240, 0.15);
+  border-radius: 10px;
+}
+
+/* 📱 Responsive : centré en mobile */
+@media (max-width: 768px) {
+  .dropdown-menu-galactic {
+    right: 50%;
+    transform: translateX(50%) translateY(-15px);
+    width: 80%;
+  }
+}
+
+
 /* Décalage pour ne pas cacher le haut du contenu */
 
   .portfolio-section {
