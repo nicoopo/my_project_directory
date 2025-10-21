@@ -1,3 +1,9 @@
+main {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* === 🚀 NAVBAR GALACTIQUE – VERSION FUSION === */
 .navbar-galactic {
     position: fixed;
@@ -301,12 +307,13 @@
 
 /* === 🌌 STYLE GLOBAL === */
   html, body {
-    margin: 0;
-    background: radial-gradient(circle at 20% 20%, #0a0a12, #050509 90%);
     color: #f5f5f5;
     font-family: 'Inter', sans-serif;
-    overflow-x: auto;
-    height: auto;
+    background: radial-gradient(ellipse at bottom, #0a0a12 0%, #000 100%);
+    overflow-x: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 
   /* === 🪐 SECTION HERO === */
@@ -402,14 +409,14 @@
 
   /* === ✨ EFFET ÉTOILES === */
   #stars {
-    position: absolute;
+    position: fixed; /* ✅ reste toujours visible même en scrollant */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Derrière tout */
-    pointer-events: none; /* Le canvas ne bloque pas les clics */
-  }
+    z-index: 0; /* reste derrière tout ton contenu */
+    pointer-events: none; /* ne bloque pas les clics */
+}
 
   .univers-section {
     min-height: 100vh;
@@ -482,3 +489,5 @@
                 0 0 50px rgba(0, 212, 255, 0.4);
     transform: scale(1.05);
   }
+
+  

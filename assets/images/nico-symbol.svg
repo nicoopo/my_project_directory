@@ -53,7 +53,7 @@
   <!-- Path computed as an arc from angle 300° to 150° on a radius ~260 -->
   <path
     d="M642.000,286.833
-       A260,260 0 1,1 286.833,642.000"
+        A260,260 0 1,1 286.833,642.000"
     fill="none"
     stroke="url(#gradRing1)"
     stroke-width="72"
@@ -66,7 +66,7 @@
   <!-- Second arc (contraste, torsion) from 150° to 300° (smaller stroke to create twist) -->
   <path
     d="M286.833,642.000
-       A260,260 0 0,1 642.000,286.833"
+        A260,260 0 0,1 642.000,286.833"
     fill="none"
     stroke="url(#gradRing2)"
     stroke-width="44"
@@ -78,7 +78,7 @@
   <!-- A thin bright accent to simulate the aurora highlight -->
   <path
     d="M600,244
-       A300,300 0 0,1 300,624"
+        A300,300 0 0,1 300,624"
     fill="none"
     stroke="rgba(255,255,255,0.18)"
     stroke-width="18"
