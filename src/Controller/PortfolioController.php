@@ -40,17 +40,18 @@ final class PortfolioController extends AbstractController
                 ],
             ],
             'PHP / Symfony' => [
+                
+                [
+                    'titre' => 'WEB consultation et collaboratif Encaissements',
+                    'description' => 'Progiciel pour la gestion de portefeuilles clients et d’investissements.',
+                    'tech' => 'Symfony, UX, MYSQL',
+                    'image' => 'symfony/crm_finance.png',
+                ],
                 [
                     'titre' => 'Plateforme de QCM',
                     'description' => 'Application web de QCM pour les formations CCA, avec authentification et suivi des scores.',
                     'tech' => 'Symfony, Bootstrap, MySQL',
                     'image' => 'symfony/qcm_app.gif',
-                ],
-                [
-                    'titre' => 'CRM Financier',
-                    'description' => 'Progiciel pour la gestion de portefeuilles clients et d’investissements.',
-                    'tech' => 'Symfony, UX, MYSQL',
-                    'image' => 'symfony/crm_finance.png',
                 ],
             ],
             'Réseau / Infra' => [
