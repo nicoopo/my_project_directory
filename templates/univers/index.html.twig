@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Univers - Portfolio{% endblock %}
+
+{% block body %}
+<section class="univers-section container py-5">
+
+  <h1 class="text-center mb-5 gradient fw-bold display-5">Mon Univers</h1>
+
+  <section class="cv-section text-center py-5">
+    <h1 class="gradient mb-4">Mon CV</h1>
+  
+    <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
+      <!-- Voir le CV -->
+      <a href="{{ asset('docs/CV.pdf') }}" target="_blank"
+         class="btn btn-galactic btn-galactic-outline-light">
+        <i class="bi bi-eye"></i> Voir le CV
+      </a>
+  
+      <!-- Télécharger le CV -->
+      <a href="{{ asset('docs/CV.pdf') }}" download
+         class="btn btn-galactic btn-galactic-primary">
+        <i class="bi bi-download"></i> Télécharger
+      </a>
+    </div>
+  
+    <h1 class="gradient mb-4">Ma lettre de motivation</h1>
+  
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <!-- Voir la lettre -->
+      <a href="{{ asset('docs/lettre de motivation.pdf') }}" target="_blank"
+         class="btn btn-galactic btn-galactic-outline-light">
+        <i class="bi bi-eye"></i> Voir la lettre
+      </a>
+  
+      <!-- Télécharger la lettre -->
+      <a href="{{ asset('docs/lettre de motivation.pdf') }}" download
+         class="btn btn-galactic btn-galactic-primary">
+        <i class="bi bi-download"></i> Télécharger
+      </a>
+    </div>
+  </section>
+
+  <h2 class="text-center mb-5 gradient fw-bold display-6">Mon parcours</h2>
+
+  <div class="timeline-container">
+
+    <div class="timeline-item">
+      <div class="timeline-content shadow-lg rounded-4 p-4">
+        <span class="date gradient fw-bold">2022 - 2024</span>
+        <h4 class="fw-bold">Étude développement web</h4>
+        <p class="mb-0 opacity-75">
+          Lycée UFA Robert Schuman<br>
+          Dugny, Seine-Saint-Denis
+        </p>
+        <p class="mt-2 fw-semibold">Obtention du BTS</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-content shadow-lg rounded-4 p-4">
+        <span class="date gradient fw-bold">2019 - 2022</span>
+        <h4 class="fw-bold">Étude réseau informatique</h4>
+        <p class="mb-0 opacity-75">
+          Lycée La Salle<br>
+          Saint-Denis, Seine-Saint-Denis
+        </p>
+        <p class="mt-2 fw-semibold">Obtention du BAC</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content shadow-lg rounded-4 p-4">
+        <span class="date gradient fw-bold">2010 - 2019</span>
+        <h4 class="fw-bold">Étude réseau informatique</h4>
+        <p class="mb-0 opacity-75">
+          Lycée La Salle<br>
+          Saint-Denis, Seine-Saint-Denis
+        </p>
+        <p class="mt-2 fw-semibold">Obtention mon brevet</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

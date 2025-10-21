@@ -410,3 +410,75 @@
     z-index: 0; /* Derrière tout */
     pointer-events: none; /* Le canvas ne bloque pas les clics */
   }
+
+  .univers-section {
+    min-height: 100vh;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .timeline-content {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .timeline-content:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(100, 100, 255, 0.5);
+  }
+  
+  .date {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .gradient {
+    background: linear-gradient(90deg, #6d5dfc, #b621fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .btn-galactic {
+    border-radius: 50px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-galactic-primary {
+    background: linear-gradient(90deg, #6d5dfc, #b621fe);
+    color: #fff;
+    border: none;
+  }
+  
+  .btn-galactic-outline-light {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #b621fe;
+  }
+  
+  .btn-galactic:hover {
+    box-shadow: 0 0 15px rgba(182, 33, 254, 0.5);
+    transform: translateY(-3px);
+  }
+  .cv-section .btn:hover {
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.7),
+                0 0 50px rgba(0, 212, 255, 0.4);
+    transform: scale(1.05);
+  }
