@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compétences – Nicolas Cataluna{% endblock %}
+
+{% block body %}
+<div class="skills-page">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <section class="skills-header">
+    <h1>Mes Compétences</h1>
+    <p>Un aperçu de mes connaissances techniques et humaines</p>
+  </section>
+
+  <section class="skills-grid">
+
+    <!-- Front-End -->
+    <div class="skills-category">
+      <h2>Front-End</h2>
+      <div class="skills-cards">
+        <div class="skill-card"><span>HTML5</span></div>
+        <div class="skill-card"><span>CSS3 / SCSS</span></div>
+        <div class="skill-card"><span>JavaScript / TypeScript</span></div>
+        <div class="skill-card"><span>Vue.js</span></div>
+        <div class="skill-card"><span>React</span></div>
+      </div>
+    </div>
+
+    <!-- Back-End -->
+    <div class="skills-category">
+      <h2>Back-End</h2>
+      <div class="skills-cards">
+        <div class="skill-card"><span>PHP / Symfony</span></div>
+        <div class="skill-card"><span>Java / Spring</span></div>
+        <div class="skill-card"><span>Python</span></div>
+        <div class="skill-card"><span>API REST</span></div>
+        <div class="skill-card"><span>MySQL / PostgreSQL</span></div>
+      </div>
+    </div>
+
+    <!-- Outils -->
+    <div class="skills-category">
+      <h2>Outils</h2>
+      <div class="skills-cards">
+        <div class="skill-card"><span>Git / GitHub</span></div>
+        <div class="skill-card"><span>VS Code / JetBrains</span></div>
+        <div class="skill-card"><span>Docker</span></div>
+        <div class="skill-card"><span>Linux / Windows</span></div>
+        <div class="skill-card"><span>Figma</span></div>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skills-category">
+      <h2>Soft Skills</h2>
+      <div class="skills-cards">
+        <div class="skill-card"><span>Travail en équipe</span></div>
+        <div class="skill-card"><span>Autonomie</span></div>
+        <div class="skill-card"><span>Rigueur</span></div>
+        <div class="skill-card"><span>Curiosité</span></div>
+        <div class="skill-card"><span>Bonne humeur 😄</span></div>
+      </div>
+    </div>
+
+  </section>
+</div>
+{% endblock %}

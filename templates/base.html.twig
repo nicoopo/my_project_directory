@@ -30,7 +30,7 @@
                     <li><a href="{{ path('app_home') }}">Accueil</a></li>
                     <li><a href="{{ path('app_projects') }}">Projets</a></li>
                     <li><a href="{{ path('app_univers') }}">Mon Univers</a></li>
-                    <li><a href="#">Compétences</a></li>
+                    <li><a href="{{ path('app_competences') }}">Compétences</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -61,15 +61,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             const main = document.querySelector('main');
             if (main) {
-              main.style.opacity = 0;
-              main.style.transform = 'translateY(30px)';
-              main.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-              requestAnimationFrame(() => {
+                main.style.opacity = 0;
+                main.style.transform = 'translateY(30px)';
+                main.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                requestAnimationFrame(() => {
                 main.style.opacity = 1;
                 main.style.transform = 'translateY(0)';
-              });
+            });
             }
-          });
+        });
     </script>
 </body>
 </html>

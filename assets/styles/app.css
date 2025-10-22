@@ -416,6 +416,7 @@ main {
     height: 100%;
     z-index: 0; /* reste derrière tout ton contenu */
     pointer-events: none; /* ne bloque pas les clics */
+    background: transparent;
 }
 
   .univers-section {
@@ -490,4 +491,92 @@ main {
     transform: scale(1.05);
   }
 
+
+  .skills-page {
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    padding-bottom: 5rem;
+  }
+  
+  /* Fond étoilé déjà géré par ton JS/CSS habituel */
+  
+  .skills-header {
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+  
+  .skills-header h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #6be1ff, #b66dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    animation: glowText 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glowText {
+    from { text-shadow: 0 0 10px #6be1ff; }
+    to { text-shadow: 0 0 25px #b66dff; }
+  }
+  
+  .skills-header p {
+    color: #aaa;
+    font-size: 1.2rem;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .skills-category {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+  }
+  
+  .skills-category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(107, 225, 255, 0.3);
+  }
+  
+  .skills-category h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #6be1ff;
+    padding-left: 0.6rem;
+  }
+  
+  .skills-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .skill-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    transition: 0.3s;
+    cursor: default;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .skill-card:hover {
+    background: rgba(107, 225, 255, 0.15);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(107, 225, 255, 0.3);
+  }
+  
   
