@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Nicolas Cataluna{% endblock %}
+
+{% block body %}
+    <section class="contact-section">
+        <div class="contact-container">
+            <h1>Contact</h1>
+            <p class="contact-subtitle">
+            Pour toute prise de contact, opportunité d’alternance ou échange professionnel,<br>
+            vous pouvez me joindre directement par mail ou via mes profils ci-dessous.
+            </p>
+
+            <div class="contact-links">
+            <!-- Mail -->
+            <a href="mailto:nicolas.cataluna@proton.me?subject=Contact%20depuis%20le%20portfolio"
+                class="contact-item" title="Envoyer un mail">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Mail</span>
+                <button type="button" class="menu-button" id="menuToggle"> 
+                    {{ ux_icon('fluent:mail-add-24-filled', {'height': '32px', 'width': '32px', 'color': '#cfe9ff'}) }}
+                </button>
+            </a>
+
+            <!-- CV numérique -->
+            <a href="https://hainu.fr/nicolas/folio" target="_blank" class="contact-item" title="Voir mon CV numérique">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Mon CV numérique</span>
+                <button type="button" class="menu-button" id="menuToggle"> 
+                    {{ ux_icon('pepicons-pop:cv-circle', {'height': '32px', 'width': '32px', 'color': '#cfe9ff'}) }}
+                </button>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/tonprofil" target="_blank" class="contact-item" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+                <button type="button" class="menu-button" id="menuToggle"> 
+                    {{ ux_icon('iconoir:github', {'height': '32px', 'width': '32px', 'color': '#cfe9ff'}) }}
+                </button>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/nicolas-cataluna-737182224/" target="_blank" class="contact-item" title="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+                <button type="button" class="menu-button" id="menuToggle"> 
+                    {{ ux_icon('streamline-pixel:logo-linkedin', {'height': '32px', 'width': '32px', 'color': '#cfe9ff'}) }}
+                </button>
+                
+            </a>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
