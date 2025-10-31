@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class PortfolioController extends AbstractController
 {
-    #[Route('/portfolio', name: 'app_projects')]
+    #[Route('/projects', name: 'app_projects')]
     public function index(): Response
     {
         // Exemple de données de projets (tu pourras plus tard les récupérer depuis ta BDD)
