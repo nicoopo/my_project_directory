@@ -1,21 +1,89 @@
-:root {
-  --navbar-height: 75px;
-}
+/* ========================================
+   TABLE DES MATIÈRES
+   ========================================
+   1. Variables CSS
+   2. Reset & Base Styles
+   3. Animations & Keyframes
+   4. Navbar
+   5. Hero Section
+   6. Portfolio Section
+   7. Timeline
+   8. Skills Section
+   9. Contact Section
+   10. Buttons
+   11. Utilities
+   12. Responsive
+   ======================================== */
 
 
-/* Correctif fort: la frise ne doit jamais couper le texte en mobile */
-@media (max-width: 576px) {
-  .timeline { display: none !important; }
-}
-main {
-  opacity: 1;
-  transform: translateY(0);
-  padding-top: var(--navbar-height);
-}
-
-
-/* === 🚀 NAVBAR GALACTIQUE – VERSION FUSION === */
-.navbar-galactic {
+/* ========================================
+   1. VARIABLES CSS
+   ======================================== */
+   :root {
+    --navbar-height: 75px;
+    --color-primary: #7f5af0;
+    --color-secondary: #00d4ff;
+    --color-text: #f5f5f5;
+    --color-text-light: #e0f7ff;
+    --spacing-xl: 6rem;
+    --spacing-lg: 4rem;
+    --spacing-md: 2.5rem;
+    --spacing-sm: 1.5rem;
+  }
+  
+  
+  /* ========================================
+     2. RESET & BASE STYLES
+     ======================================== */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    color: var(--color-text);
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(ellipse at bottom, #0a0a12 0%, #000 100%);
+  }
+  
+  main {
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: var(--navbar-height);
+  }
+  
+  
+  /* ========================================
+     3. ANIMATIONS & KEYFRAMES
+     ======================================== */
+  @keyframes float-nav {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(162, 194, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(162, 194, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  @keyframes glowText {
+    from { text-shadow: 0 0 10px #6d5dfc; }
+    to { text-shadow: 0 0 25px #b66dff; }
+  }
+  
+  
+  /* ========================================
+     4. NAVBAR
+     ======================================== */
+  .navbar-galactic {
     height: var(--navbar-height);
     position: fixed;
     top: 0;
@@ -27,262 +95,221 @@ main {
     box-shadow: 0 0 25px rgba(127, 90, 240, 0.25), 0 0 40px rgba(0, 212, 255, 0.15);
     transition: all 0.4s ease;
     animation: float-nav 6s ease-in-out infinite alternate;
-}
-
-/* Glow léger quand on survole la barre entière */
-.navbar-galactic:hover {
+  }
   
+  .navbar-galactic:hover {
     box-shadow: 0 0 30px rgba(127, 90, 240, 0.45), 0 0 60px rgba(0, 212, 255, 0.35);
-}
-
-.navbar-container {
+  }
+  
+  .navbar-galactic.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .navbar-galactic.scroll-up {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.1rem 4rem;
-}
-
-.logo {
+  }
+  
+  /* Logo */
+  .logo {
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-decoration: none;
-    background: linear-gradient(90deg, #7f5af0, #00d4ff);
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: text-shadow 0.4s ease;
-}
-
-.logo:hover {
-    text-shadow: 0 0 8px #7f5af0, 0 0 18px #00d4ff;
-}
-
-.navbar-links {
+  }
+  
+  .logo:hover {
+    text-shadow: 0 0 8px var(--color-primary), 0 0 18px var(--color-secondary);
+  }
+  
+  .logo-sm {
+    max-width: 40px;
+    height: auto;
+  }
+  
+  /* Navigation Links */
+  .navbar-links {
     list-style: none;
     display: flex;
     gap: 2rem;
     margin: 0;
-}
-
-.navbar-links a {
+  }
+  
+  .navbar-links a {
     text-decoration: none;
-    color: #e0f7ff;
+    color: var(--color-text-light);
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.navbar-links a:hover {
+  }
+  
+  .navbar-links a:hover {
     color: #ffffff;
-    text-shadow: 0 0 8px #7f5af0, 0 0 16px #00d4ff;
-}
-
-.navbar-links a::after {
+    text-shadow: 0 0 8px var(--color-primary), 0 0 16px var(--color-secondary);
+  }
+  
+  .navbar-links a::after {
     content: '';
     position: absolute;
     bottom: -5px;
     left: 0;
     width: 0%;
     height: 2px;
-    background: linear-gradient(90deg, #00d4ff, #7f5af0);
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
     transition: width 0.4s ease;
     border-radius: 4px;
-}
-
-.navbar-links a:hover::after {
-    width: 100%;
-}
-
-/* 🌬️ Animation flottante */
-@keyframes float-nav {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(4px); }
-}
-
-/* 🧊 Animation d’apparition/disparition */
-.navbar-galactic.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-.navbar-galactic.scroll-up {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* 📱 Responsive */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: row; /* conserve logo à gauche, menu à droite */
-        gap: 0.8rem;
-        padding: 0.8rem 1.2rem;
-    }
-    .navbar-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    /* Lisibilité du menu: plus grand et plus contrasté */
-    .dropdown-menu-galactic {
-        background: rgba(15, 15, 30, 0.92);
-        border-color: rgba(127, 90, 240, 0.6);
-        backdrop-filter: blur(12px) saturate(160%);
-        right: 1rem;          /* collé à droite du bouton */
-        left: auto;
-        transform: none;      /* pas de centrage */
-        width: max-content;   /* épouse le texte comme sur PC */
-        max-width: 90vw;      /* évite de dépasser l'écran */
-        padding: 0.25rem;     /* réduit pour coller au texte */
-        box-sizing: border-box;
-    }
-    .dropdown-menu-galactic li { margin: 0; }
-    .dropdown-menu-galactic a {
-        display: inline-block; /* largeur au contenu */
-        box-sizing: border-box;
-        text-align: left;
-        white-space: nowrap;  /* garde le contour au plus proche du texte */
-        font-size: 1.05rem;
-        padding: 0.35rem 0.45rem; /* très léger écart autour du texte */
-        color: #ffffff;
-        text-shadow: none;    /* meilleure netteté */
-    }
-    .dropdown-menu-galactic a:hover {
-        background: rgba(127, 90, 240, 0.2);
-    }
-}
-
-/* === 🌌 MENU GALACTIQUE DÉROULANT === */
-/* ===== Fix icône dans le bouton menu (UX Icon ou SVG inline) ===== */
-.menu-button {
-  appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  background: rgba(20,20,40,0.45); /* ton style existant */
-  padding: 0.45rem 0.6rem;
-  border-radius: 10px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  line-height: 1;
-  outline: none;
-}
-
-/* Force l'affichage et la taille du SVG généré par ux_icon */
-.menu-button svg,
-.menu-button .ux-icon,
-.menu-button .icon {
-  display: inline-block !important;
-  width: 1.6em !important;
-  height: 1.6em !important;
-  min-width: 24px;
-  min-height: 24px;
-  fill: currentColor !important;        /* permet de colorer le svg via color */
-  color: #e0f7ff !important;            /* couleur icône */
-  vertical-align: middle;
-}
-
-/* Si ux_icon injecte <svg role="img"> parfois le fill est sur <path> */
-.menu-button svg path {
-  fill: currentColor !important;
-}
-
-/* S'assure que rien ne masque le SVG */
-.menu-button * {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Optionnel : hover glow identique au reste du thème */
-.menu-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(127,90,240,0.45), 0 0 36px rgba(0,212,255,0.25);
-}
-
-
-.dropdown-menu-galactic {
-  display: none;
-  position: absolute;
-  right: 2rem;
-  top: 80px;
-  background: rgba(15, 15, 30, 0.8);
-  border: 1px solid rgba(127, 90, 240, 0.4);
-  border-radius: 16px;
-  backdrop-filter: blur(14px) saturate(160%);
-  box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
-  list-style: none;
-  padding: 1rem 0;
-  margin: 0;
-  width: 220px;
-  z-index: 999;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(-15px);
-}
-
-.dropdown-menu-galactic.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown-menu-galactic li {
-  text-align: center;
-  margin: 0.5rem 0;
-}
-
-.dropdown-menu-galactic a {
-  display: block;
-  color: #e0f7ff;
-  text-decoration: none;
-  padding: 0.6rem 0;
-  transition: all 0.3s ease;
-}
-
-.dropdown-menu-galactic a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #7f5af0, 0 0 16px #00d4ff;
-  background: rgba(127, 90, 240, 0.15);
-  border-radius: 10px;
-}
-
-/* 📱 Responsive : centré en mobile */
-@media (max-width: 768px) {
-  .dropdown-menu-galactic {
-    right: 50%;
-    transform: translateX(50%) translateY(-15px);
-    width: 80%;
   }
-}
-
-
-/* Décalage pour ne pas cacher le haut du contenu */
-
+  
+  .navbar-links a:hover::after {
+    width: 100%;
+  }
+  
+  /* Menu Button */
+  .menu-button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: rgba(20, 20, 40, 0.45);
+    padding: 0.45rem 0.6rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    line-height: 1;
+    outline: none;
+  }
+  
+  .menu-button svg,
+  .menu-button .ux-icon,
+  .menu-button .icon {
+    display: inline-block !important;
+    width: 1.6em !important;
+    height: 1.6em !important;
+    min-width: 24px;
+    min-height: 24px;
+    fill: currentColor !important;
+    color: var(--color-text-light) !important;
+    vertical-align: middle;
+  }
+  
+  .menu-button svg path {
+    fill: currentColor !important;
+  }
+  
+  .menu-button * {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .menu-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(127, 90, 240, 0.45), 0 0 36px rgba(0, 212, 255, 0.25);
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-menu-galactic {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 80px;
+    background: rgba(15, 15, 30, 0.8);
+    border: 1px solid rgba(127, 90, 240, 0.4);
+    border-radius: 16px;
+    backdrop-filter: blur(14px) saturate(160%);
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+    width: 220px;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  
+  .dropdown-menu-galactic.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dropdown-menu-galactic li {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  
+  .dropdown-menu-galactic a {
+    display: block;
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.6rem 0;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-menu-galactic a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--color-primary), 0 0 16px var(--color-secondary);
+    background: rgba(127, 90, 240, 0.15);
+    border-radius: 10px;
+  }
+  
+  
+  /* ========================================
+     5. HERO SECTION
+     ======================================== */
+  .hero-container {
+    text-align: center;
+    padding-top: 15vh;
+    position: relative;
+  }
+  
+  
+  /* ========================================
+     6. PORTFOLIO SECTION
+     ======================================== */
   .portfolio-section {
     position: relative;
-    z-index: 10; /* ✅ Assure que tout ton contenu est au-dessus du fond étoilé */
+    z-index: 10;
   }
-
-  .timeline {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, #7f5af0, #00d4ff, #7f5af0);
-    box-shadow: 0 0 25px rgba(127, 90, 240, 0.5);
-    border-radius: 10px;
-    z-index: 0;
+  
+  .category-block {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
   }
-
-
+  
   .project-row {
     position: relative;
     z-index: 1;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-out;
   }
-
+  
+  .project-row.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  .project-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   .project-img {
     width: 100%;
     max-width: 500px;
@@ -290,177 +317,42 @@ main {
     box-shadow: 0 0 25px rgba(127, 90, 240, 0.4);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
-
+  
   .project-img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 45px rgba(127, 90, 240, 0.8);
   }
-
+  
   .project-text {
     background: rgba(10, 10, 25, 0.7);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(127, 90, 240, 0.2);
     backdrop-filter: blur(10px);
-    color: #f5f5f5;
+    color: var(--color-text);
     transition: all 0.3s ease;
   }
-
+  
   .project-text:hover {
     box-shadow: 0 0 30px rgba(127, 90, 240, 0.4);
   }
-
-  .gradient {
-    background: linear-gradient(90deg, #7f5af0, #00d4ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .category-block {
-    position: relative;
-    margin-bottom: 6rem;
-  }
-  .project-row {
-    opacity: 1; /* visible par défaut */
-    transform: translateY(0);
-    transition: all 0.8s ease-out;
-  }
-
-  .project-row.hidden {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  .project-row.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* .project-row {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-} */
-
-/* .project-row.visible {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-/* === 🌌 STYLE GLOBAL === */
-  html, body {
-    color: #f5f5f5;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(ellipse at bottom, #0a0a12 0%, #000 100%);
-    overflow-x: hidden;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* === 🪐 SECTION HERO === */
-  .hero-container {
-    text-align: center;
-    padding-top: 15vh;
-    position: relative;
-  }
-
-  .gradient {
-    background: linear-gradient(90deg, #7f5af0, #00d4ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* === 🌠 ANIMATION GLOW === */
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 10px rgba(162, 194, 255, 0.4),
-                  0 0 20px rgba(255, 255, 255, 0.1);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(162, 194, 255, 0.7),
-                  0 0 40px rgba(255, 255, 255, 0.3);
-    }
-  }
-
-  /* === 🚀 BOUTONS GALACTIQUES (Bootstrap-friendly) === */
-  .btn-galactic {
-    border-width: 2px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 0.8rem 2.2rem;
-    transition: all 0.3s ease-in-out;
-    border-radius: 50px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
-    animation: pulse-glow 3s infinite ease-in-out;
-  }
-
-  /* --- Effet au survol général --- */
-  .btn-galactic:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(162, 194, 255, 0.6),
-                0 0 50px rgba(255, 255, 255, 0.3);
-  }
-
-  /* --- Version claire (outline blanc) --- */
-  .btn-galactic-outline-light {
-    border: 2px solid #fff;
-    color: #fff;
-    background: transparent;
-  }
-
-  .btn-galactic-outline-light:hover {
-    background: linear-gradient(90deg, #ffffff, #a2c2ff);
-    color: #000 !important;
-  }
-
-  /* --- Version principale (dégradé galactique) --- */
-  .btn-galactic-primary {
-    background: linear-gradient(90deg, #7f5af0, #00d4ff);
-    border: none;
-    color: #fff;
-  }
-
-  .btn-galactic-primary:hover {
-    background: linear-gradient(90deg, #a2c2ff, #ffffff);
-    color: #000 !important;
-  }
-
-  /* --- 🌑 Version sombre (pour fonds clairs) --- */
-  .btn-galactic-dark {
-    background: linear-gradient(90deg, #1a1a2e, #16213e);
-    border: 1px solid #3a3a5e;
-    color: #f5f5f5;
-    box-shadow: 0 0 15px rgba(100, 100, 255, 0.15);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .btn-galactic-dark:hover {
-    background: linear-gradient(90deg, #2a2a4e, #0f3460);
-    color: #ffffff !important;
-    box-shadow: 0 0 25px rgba(127, 90, 240, 0.6),
-                0 0 50px rgba(0, 212, 255, 0.3);
-    transform: scale(1.05);
-  }
-  .logo-sm{
-    max-width: 40px;
-    height: auto;
-  }
-
-  /* === ✨ EFFET ÉTOILES === */
-  #stars {
-    position: fixed; /* ✅ reste toujours visible même en scrollant */
+  
+  
+  /* ========================================
+     7. TIMELINE
+     ======================================== */
+  .timeline {
+    position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
     height: 100%;
-    z-index: 0; /* reste derrière tout ton contenu */
-    pointer-events: none; /* ne bloque pas les clics */
-    background: transparent;
-}
-
+    background: linear-gradient(180deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.5);
+    border-radius: 10px;
+    z-index: 0;
+  }
+  
   .univers-section {
     min-height: 100vh;
     color: #fff;
@@ -471,7 +363,7 @@ main {
   .timeline-container {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: var(--spacing-md);
     align-items: center;
   }
   
@@ -498,43 +390,15 @@ main {
     font-size: 1.1rem;
   }
   
-  .gradient {
-    background: linear-gradient(90deg, #6d5dfc, #b621fe);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .btn-galactic {
-    border-radius: 50px;
-    padding: 0.6rem 1.4rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-galactic-primary {
-    background: linear-gradient(90deg, #6d5dfc, #b621fe);
-    color: #fff;
-    border: none;
-  }
-  
-  .btn-galactic-outline-light {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #b621fe;
-  }
-  
-  .btn-galactic:hover {
-    box-shadow: 0 0 15px rgba(182, 33, 254, 0.5);
-    transform: translateY(-3px);
-  }
   .cv-section .btn:hover {
-    box-shadow: 0 0 25px rgba(127, 90, 240, 0.7),
-                0 0 50px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.7), 0 0 50px rgba(0, 212, 255, 0.4);
     transform: scale(1.05);
   }
-
-
+  
+  
+  /* ========================================
+     8. SKILLS SECTION
+     ======================================== */
   .skills-page {
     position: relative;
     min-height: 100vh;
@@ -543,12 +407,10 @@ main {
     padding-bottom: 5rem;
   }
   
-  /* Fond étoilé déjà géré par ton JS/CSS habituel */
-  
   .skills-header {
     text-align: center;
-    margin-top: 6rem;
-    margin-bottom: 4rem;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
   }
   
   .skills-header h1 {
@@ -559,11 +421,6 @@ main {
     -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
     animation: glowText 3s ease-in-out infinite alternate;
-  }
-  
-  @keyframes glowText {
-    from { text-shadow: 0 0 10px #6d5dfc; }
-    to { text-shadow: 0 0 25px #b66dff; }
   }
   
   .skills-header p {
@@ -595,7 +452,7 @@ main {
   
   .skills-category h2 {
     font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm);
     border-left: 4px solid #6be1ff;
     padding-left: 0.6rem;
   }
@@ -624,203 +481,355 @@ main {
   }
   
   
-/* === SECTION CONTACT === */
-.contact-section {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-}
-
-.contact-container {
-  background: rgba(20, 20, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 40px 60px;
-  max-width: 700px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
-  animation: float 6s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
-}
-
-.contact-container h1 {
-  font-size: 2.4rem;
-  color: #7f5af0;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.contact-subtitle {
-  font-size: 1.1rem;
-  color: #e0f7ff;
-  margin-bottom: 40px;
-  line-height: 1.6;
-}
-
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 12px 20px;
-  text-decoration: none;
-  color: #e0f7ff;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.contact-item i {
-  font-size: 1.4rem;
-  color: #ff8800;
-  text-shadow: 0 0 10px rgba(255, 136, 0, 0.6);
-  transition: 0.3s ease;
-}
-
-.contact-item span {
-  flex: 1;
-  text-align: left;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-}
-
-.contact-item:hover {
-  transform: translateY(-3px) scale(1.03);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 15px rgba(255, 136, 0, 0.3);
-}
-
-.contact-item:hover i {
-  color: #ffd27f;
-  text-shadow: 0 0 15px rgba(255, 200, 100, 0.8);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
+  /* ========================================
+     9. CONTACT SECTION
+     ======================================== */
+  .contact-section {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+  }
+  
   .contact-container {
-    padding: 30px 20px;
+    background: rgba(20, 20, 40, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px 60px;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+    animation: float 6s ease-in-out infinite alternate;
   }
-
+  
   .contact-container h1 {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
-
+  
   .contact-subtitle {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+    line-height: 1.6;
   }
-}
-
-
-
-
-
-
-/* === 📱 OPTIMISATIONS MOBILE (espaces réduits) === */
-@media (max-width: 768px) {
-  /* Réduit les grands espacements généraux sur tablette/mobile */
-  .skills-header {
-    margin-top: 4rem;
-    margin-bottom: 2.5rem;
+  
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
-  .skills-grid {
-    width: 90%;
-    gap: 2rem;
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .category-block {
-    margin-bottom: 4rem;
+  
+  .contact-item i {
+    font-size: 1.4rem;
+    color: #ff8800;
+    text-shadow: 0 0 10px rgba(255, 136, 0, 0.6);
+    transition: 0.3s ease;
   }
-  .hero-container {
-    padding-top: 12vh;
+  
+  .contact-item span {
+    flex: 1;
+    text-align: left;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
   }
-}
-
-@media (max-width: 576px) {
-  /* Laisse le contenu déterminer la hauteur en mobile */
-  html, body { height: auto; min-height: 100vh; }
-
-  /* Navbar plus compacte et compensation du main */
-  :root { --navbar-height: 64px; }
-  .navbar-container { padding: 0.8rem 1.2rem; }
-  .navbar-links { gap: 0.8rem; }
-  main { padding-top: var(--navbar-height); }
-
-  /* Réduction des vides verticaux sur sections plein-écran */
-  .univers-section,
-  .contact-section,
-  .skills-page {
-    min-height: auto;
-    padding-top: 20px;
-    padding-bottom: 40px;
+  
+  .contact-item:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.3);
   }
-
-  /* Hero et espaces */
-  .hero-container { padding-top: 6vh; }
-  .category-block { margin-bottom: 2.5rem; }
-
-  /* Grille des compétences en une colonne et plus étroite sur les côtés */
-  .skills-grid {
-    width: 92%;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  
+  .contact-item:hover i {
+    color: #ffd27f;
+    text-shadow: 0 0 15px rgba(255, 200, 100, 0.8);
   }
-  .skills-category { padding: 1.25rem; }
-  .skills-header { margin-top: 3rem; margin-bottom: 2rem; }
-  .skills-header h1 { font-size: 2.2rem; }
-  .skills-header p { font-size: 1rem; }
-
-  /* Portfolio: images et textes plus compacts */
-  .project-img { max-width: 100%; }
-  .project-text { padding: 1rem; }
-
-  /* Timeline plus discrète en mobile */
-  .timeline {
-    left: 8px;
-    transform: none;
+  
+  
+  /* ========================================
+     10. BUTTONS
+     ======================================== */
+  .btn-galactic {
+    border-width: 2px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.8rem 2.2rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    animation: pulse-glow 3s infinite ease-in-out;
+  }
+  
+  .btn-galactic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(162, 194, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Variante Outline Light */
+  .btn-galactic-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+  }
+  
+  .btn-galactic-outline-light:hover {
+    background: linear-gradient(90deg, #ffffff, #a2c2ff);
+    color: #000 !important;
+  }
+  
+  /* Variante Primary */
+  .btn-galactic-primary {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-galactic-primary:hover {
+    background: linear-gradient(90deg, #a2c2ff, #ffffff);
+    color: #000 !important;
+  }
+  
+  /* Variante Dark */
+  .btn-galactic-dark {
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    border: 1px solid #3a3a5e;
+    color: var(--color-text);
+    box-shadow: 0 0 15px rgba(100, 100, 255, 0.15);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-galactic-dark:hover {
+    background: linear-gradient(90deg, #2a2a4e, #0f3460);
+    color: #ffffff !important;
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.6), 0 0 50px rgba(0, 212, 255, 0.3);
+    transform: scale(1.05);
+  }
+  
+  
+  /* ========================================
+     11. UTILITIES
+     ======================================== */
+  h1.gradient ,
+  h2.gradient{
+    font-size: 3rem;
+    background: linear-gradient(90deg, #6d5dfc, #b66dff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    animation: glowText 3s ease-in-out infinite alternate;
+  }
+  
+  /* Effet Étoiles */
+  #stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent;
   }
+  
+  
+  /* ========================================
+     12. RESPONSIVE
+     ======================================== */
+  
+  /* Tablette (max-width: 768px) */
+  @media (max-width: 768px) {
+    :root {
+      --spacing-xl: 4rem;
+      --spacing-lg: 2.5rem;
+    }
+  
+    .navbar-container {
+      flex-direction: row;
+      gap: 0.8rem;
+      padding: 0.8rem 1.2rem;
+    }
+  
+    .navbar-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .dropdown-menu-galactic {
+      background: rgba(15, 15, 30, 0.92);
+      border-color: rgba(127, 90, 240, 0.6);
+      backdrop-filter: blur(12px) saturate(160%);
+      right: 1rem;
+      left: auto;
+      transform: none;
+      width: max-content;
+      max-width: 90vw;
+      padding: 0.25rem;
+      box-sizing: border-box;
+    }
+  
+    .dropdown-menu-galactic li {
+      margin: 0;
+    }
+  
+    .dropdown-menu-galactic a {
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: left;
+      white-space: nowrap;
+      font-size: 1.05rem;
+      padding: 0.35rem 0.45rem;
+      color: #ffffff;
+      text-shadow: none;
+    }
+  
+    .dropdown-menu-galactic a:hover {
+      background: rgba(127, 90, 240, 0.2);
+    }
+  
 
-  /* Menu déroulant positionné par rapport à la navbar réduite */
-  .dropdown-menu-galactic {
-    top: calc(var(--navbar-height) + 10px);
-    right: 1rem;
-    left: auto;
-    transform: none;
-    width: max-content;
-    max-width: 90vw;
+  
+    .category-block {
+      margin-bottom: 4rem;
+    }
+  
+    .hero-container {
+      padding-top: 12vh;
+    }
   }
+  
+  /* Mobile (max-width: 576px) */
+  @media (max-width: 576px) {
+    :root {
+      --navbar-height: 64px;
+    }
+  
+    html, body {
+      height: auto;
+      min-height: 100vh;
+    }
+  
+    /* Navbar mobile */
+    .navbar-container {
+      padding: 0.8rem 1.2rem;
+    }
+  
+    .navbar-links {
+      gap: 0.8rem;
+    }
+  
+    main {
+      padding-top: var(--navbar-height);
+    }
+  
+    /* Timeline cachée en mobile */
+    .timeline {
+      display: none !important;
+    }
+  
+    /* Sections */
+    .univers-section,
+    .contact-section,
+    .skills-page {
+      min-height: auto;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  
+    .hero-container {
+      padding-top: 6vh;
+    }
+  
+    .category-block {
+      margin-bottom: 2.5rem;
+    }
+  
 
-  /* Réduction des utilitaires Bootstrap très généreux sur mobile */
-  .py-5 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
-  .mb-5 { margin-bottom: 1.25rem !important; }
-  .display-5 { font-size: 1.8rem; }
-  .display-6 { font-size: 1.5rem; }
-
-  /* Portfolio: réduire espacements verticaux des lignes et titres */
-  .portfolio-section .project-row { margin-bottom: 1.5rem !important; }
-  .portfolio-section h1 { margin-bottom: 1.25rem !important; }
-  .portfolio-section .category-block h2 { margin-bottom: 1.25rem !important; }
-
-  /* Atténuer ou masquer la timeline si elle génère du vide inutile */
-  .timeline { width: 2px; opacity: 0.25; }
-
-  /* Conteneur Bootstrap: paddings plus serrés sur petits écrans */
-  .container { padding-left: 0.75rem; padding-right: 0.75rem; }
-}
-
+    /* Portfolio */
+    .project-img {
+      max-width: 100%;
+    }
+  
+    .project-text {
+      padding: 1rem;
+    }
+  
+    /* Menu déroulant */
+    .dropdown-menu-galactic {
+      top: calc(var(--navbar-height) + 10px);
+      right: 1rem;
+      left: auto;
+      transform: none;
+      width: max-content;
+      max-width: 90vw;
+    }
+  
+    /* Contact */
+    .contact-container {
+      padding: 30px 20px;
+    }
+  
+    .contact-container h1 {
+      font-size: 1.8rem;
+    }
+  
+    .contact-subtitle {
+      font-size: 0.95rem;
+    }
+  
+    /* Utilitaires Bootstrap */
+    .py-5 {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1.25rem !important;
+    }
+  
+    .mb-5 {
+      margin-bottom: 1.25rem !important;
+    }
+  
+    .display-5 {
+      font-size: 1.8rem;
+    }
+  
+    .display-6 {
+      font-size: 1.5rem;
+    }
+  
+    .portfolio-section .project-row {
+      margin-bottom: 1.5rem !important;
+    }
+  
+    .portfolio-section h1 {
+      margin-bottom: 1.25rem !important;
+    }
+  
+    .portfolio-section .category-block h2 {
+      margin-bottom: 1.25rem !important;
+    }
+  
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
