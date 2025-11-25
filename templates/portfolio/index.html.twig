@@ -3,65 +3,61 @@
 {% block title %}Mes Projets - Portfolio{% endblock %}
 
 {% block body %}
-<section class="portfolio-section container py-5">
+<section class="harbor-section container py-5">
   <h1 class="text-center mb-5 gradient fw-bold display-5">Mes Projets</h1>
-  <div class="timeline"></div>
 
-  {% for categorie, projets in categories %}
-    <div class="category-block text-center mb-5">
-      <h2 class="gradient fw-bold mb-5">{{ categorie }}</h2>
-
-      {% for projet in projets %}
-        <div class="row align-items-center mb-5 project-row {% if loop.index is odd %}left{% else %}right{% endif %}">
-          {% if loop.index is odd %}
-            <div class="col-md-6 text-center">
-              <img src="{{ asset('images/projets/' ~ projet.image) }}" alt="{{ projet.titre }}" class="project-img img-fluid rounded-4 shadow-lg">
+  <div class="harbor-dock">
+    {% for categorie, projets in categories %}
+      <div class="harbor-theme">
+        <h2 class="harbor-theme-title">{{ categorie }}</h2>
+        <div class="harbor-projects">
+          {% for projet in projets %}
+          <div class="harbor-project-card">
+            <div class="harbor-project-image-container">
+              <img src="{{ asset('images/projets/' ~ projet.image) }}" alt="{{ projet.titre }}" class="harbor-project-img">
             </div>
-            <div class="col-md-6 text-start">
-              <div class="project-text p-4">
-                <h3 class="fw-bold">{{ projet.titre }}</h3>
-                <p class="opacity-75">{{ projet.description }}</p>
-                <span class="badge bg-primary">{{ projet.tech }}</span>
-              </div>
+            <div class="harbor-project-content">
+              <h3>{{ projet.titre }}</h3>
+              <p>{{ projet.description }}</p>
+              <span class="badge bg-primary">{{ projet.tech }}</span>
             </div>
-          {% else %}
-            <div class="col-md-6 text-end">
-              <div class="project-text p-4">
-                <h3 class="fw-bold">{{ projet.titre }}</h3>
-                <p class="opacity-75">{{ projet.description }}</p>
-                <span class="badge bg-primary">{{ projet.tech }}</span>
-              </div>
-            </div>
-            <div class="col-md-6 text-center">
-              <img src="{{ asset('images/projets/' ~ projet.image) }}" alt="{{ projet.titre }}" class="project-img img-fluid rounded-4 shadow-lg">
-            </div>
-          {% endif %}
+          </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-    </div>
-  {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 </section>
-
 <script>
-  
+  document.addEventListen// Script simplifié - juste l'animation au scroll
   document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".project-row");
-
-  // Fonction d'affichage quand on scroll
-  const reveal = () => {
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add("visible");
+    const projectRows = document.querySelectorAll(".project-row");
+    
+    // Fonction de révélation simple
+    const reveal = () => {
+      const windowHeight = window.innerHeight;
+      
+      projectRows.forEach(row => {
+        const rect = row.getBoundingClientRect();
+        
+        // Si l'élément est dans la zone visible
+        if (rect.top < windowHeight - 100) {
+          row.classList.add("visible");
+        }
+      });
+    };
+    
+    // Vérifier au chargement
+    reveal();
+    
+    // Vérifier au scroll (optimisé)
+    let scrollTimeout;
+    window.addEventListener("scroll", () => {
+      if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
       }
+      scrollTimeout = window.requestAnimationFrame(reveal);
     });
-  };
-
-  // Vérifie immédiatement au chargement
-  reveal();
-
-  // Puis à chaque scroll
-  document.addEventListener("scroll", reveal);
-});
+  });
 </script>
 {% endblock %}

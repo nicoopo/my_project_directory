@@ -53,6 +53,12 @@ final class PortfolioController extends AbstractController
                     'tech' => 'Symfony, Bootstrap, MySQL',
                     'image' => 'symfony/qcm_app.gif',
                 ],
+                [
+                    'titre' => 'Portfolio',
+                    'description' => 'Application web de mon parcour',
+                    'tech' => 'Symfony/PHP, Twig/Html/CSS, MySQL',
+                    'image' => 'symfony/Portfolio.png',
+                ],
             ],
             'Réseau / Infra' => [
                 [
